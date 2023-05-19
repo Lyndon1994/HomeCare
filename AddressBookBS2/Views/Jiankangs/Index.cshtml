@@ -1,0 +1,89 @@
+﻿@model IEnumerable<HomeCare.Models.Jiankang>
+
+@{
+    ViewData["Title"] = "列表";
+}
+
+<h1>老人上报健康</h1>
+
+<p>
+    <a class="btn btn-primary" role="button" asp-action="Create">新增</a>
+</p>
+<table class="table table-info table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shousuoya)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shuzhangya)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Xuetang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Xinlv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Xueyang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Createtime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shousuoya)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shuzhangya)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Xuetang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Xinlv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Xueyang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Createtime)
+            </td>
+            <td>
+                <a class="btn btn-outline-primary" role="button" asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                <a class="btn btn-outline-primary" role="button" asp-action="Details" asp-route-id="@item.Id">详情</a>
+                <a class="btn btn-outline-danger" role="button" asp-action="Delete" asp-route-id="@item.Id">删除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

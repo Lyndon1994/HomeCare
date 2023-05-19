@@ -1,0 +1,72 @@
+﻿@model HomeCare.Models.Jiankang
+
+@{
+    ViewData["Title"] = "详情";
+}
+
+<h1>详情</h1>
+
+<div>
+    <h4>老人上报健康</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shousuoya)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shousuoya)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shuzhangya)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shuzhangya)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Xuetang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Xuetang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Xinlv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Xinlv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Xueyang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Xueyang)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Createtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Createtime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-primary" role="button" asp-action="Edit" asp-route-id="@Model?.Id">编辑</a>
+    <a class="btn btn-outline-primary" role="button" asp-action="Index">返回列表</a>
+</div>

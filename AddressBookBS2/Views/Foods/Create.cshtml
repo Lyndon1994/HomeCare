@@ -1,0 +1,48 @@
+﻿@model HomeCare.Models.Food
+
+@{
+    ViewData["Title"] = "新增";
+}
+
+<h1>新增</h1>
+
+<h4>食谱</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Foodname" class="control-label"></label>
+                <input asp-for="Foodname" class="form-control" />
+                <span asp-validation-for="Foodname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zuofa" class="control-label"></label>
+                <input asp-for="Zuofa" class="form-control" />
+                <span asp-validation-for="Zuofa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="创建" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-primary" role="button" asp-action="Index">返回列表</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

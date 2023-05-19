@@ -1,0 +1,57 @@
+﻿@model HomeCare.Models.Message_doctor
+
+@{
+    ViewData["Title"] = "删除";
+}
+
+<h1>删除</h1>
+
+<h3>你确定删除这个吗？</h3>
+<div>
+    <h4>医生留言</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Zh_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Zh_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Context)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Context)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Createtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Createtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Oldman)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Oldman)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-outline-primary" role="button" asp-action="Index">返回列表</a>
+    </form>
+</div>

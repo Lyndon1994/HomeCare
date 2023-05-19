@@ -1,0 +1,59 @@
+﻿@model HomeCare.Models.Message_doctor
+
+@{
+    ViewData["Title"] = "编辑";
+}
+
+<h1>编辑</h1>
+
+<h4>医生留言</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Zh_name" class="control-label"></label>
+                <input asp-for="Zh_name" class="form-control" />
+                <span asp-validation-for="Zh_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Context" class="control-label"></label>
+                <input asp-for="Context" class="form-control" />
+                <span asp-validation-for="Context" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Createtime" class="control-label"></label>
+                <input asp-for="Createtime" class="form-control" />
+                <span asp-validation-for="Createtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oldman" class="control-label"></label>
+                <input asp-for="Oldman" class="form-control" />
+                <span asp-validation-for="Oldman" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="保存" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-primary" role="button" asp-action="Index">返回列表</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

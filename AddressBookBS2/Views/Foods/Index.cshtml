@@ -1,0 +1,59 @@
+﻿@model IEnumerable<HomeCare.Models.Food>
+
+@{
+    ViewData["Title"] = "列表";
+}
+
+<h1>食谱</h1>
+
+<p>
+    <a class="btn btn-primary" role="button" asp-action="Create">新增</a>
+</p>
+<table class="table table-info table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foodname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zuofa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foodname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zuofa)
+            </td>
+            <td>
+                <a class="btn btn-outline-primary" role="button" asp-action="Edit" asp-route-id="@item.Id">编辑</a>
+                <a class="btn btn-outline-primary" role="button" asp-action="Details" asp-route-id="@item.Id">详情</a>
+                <a class="btn btn-outline-danger" role="button" asp-action="Delete" asp-route-id="@item.Id">删除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

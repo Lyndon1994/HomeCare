@@ -1,0 +1,73 @@
+﻿@model HomeCare.Models.Jiankang
+
+@{
+    ViewData["Title"] = "新增";
+}
+
+<h1>新增</h1>
+
+<h4>老人上报健康</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shousuoya" class="control-label"></label>
+                <input asp-for="Shousuoya" class="form-control" />
+                <span asp-validation-for="Shousuoya" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shuzhangya" class="control-label"></label>
+                <input asp-for="Shuzhangya" class="form-control" />
+                <span asp-validation-for="Shuzhangya" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Xuetang" class="control-label"></label>
+                <input asp-for="Xuetang" class="form-control" />
+                <span asp-validation-for="Xuetang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Xinlv" class="control-label"></label>
+                <input asp-for="Xinlv" class="form-control" />
+                <span asp-validation-for="Xinlv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Xueyang" class="control-label"></label>
+                <input asp-for="Xueyang" class="form-control" />
+                <span asp-validation-for="Xueyang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Createtime" class="control-label"></label>
+                <input asp-for="Createtime" class="form-control" />
+                <span asp-validation-for="Createtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="创建" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-primary" role="button" asp-action="Index">返回列表</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
