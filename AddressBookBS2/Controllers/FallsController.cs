@@ -1,7 +1,12 @@
-﻿using HomeCare.Data;
-using HomeCare.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using HomeCare.Data;
+using HomeCare.Models;
 
 namespace HomeCare.Controllers
 {
@@ -14,13 +19,12 @@ namespace HomeCare.Controllers
             _context = context;
         }
 
-
         // GET: Falls
         public async Task<IActionResult> Index()
         {
-            return _context.Fall != null ?
-                        View(await _context.Fall.ToListAsync()) :
-                        Problem("Entity set 'HomeCareContext.Fall'  is null.");
+              return _context.Fall != null ? 
+                          View(await _context.Fall.ToListAsync()) :
+                          Problem("Entity set 'HomeCareContext.Fall'  is null.");
         }
 
         // GET: Falls/Details/5
@@ -52,7 +56,7 @@ namespace HomeCare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Status")] Fall fall)
+        public async Task<IActionResult> Create([Bind("Id,Vid,Status")] Fall fall)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +88,7 @@ namespace HomeCare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Status")] Fall fall)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Vid,Status")] Fall fall)
         {
             if (id != fall.Id)
             {
@@ -146,15 +150,14 @@ namespace HomeCare.Controllers
             {
                 _context.Fall.Remove(fall);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FallExists(int id)
         {
-            return (_context.Fall?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Fall?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-
     }
 }

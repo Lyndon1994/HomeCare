@@ -9,6 +9,9 @@ namespace HomeCare.Models
         [DisplayName("编号")]
         public int Id { get; set; }
 
+        [DisplayName("设备号")]
+        public int Vid { get; set; }
+
         [DisplayName("状态")]
         [Column("Fall")]
         public int Status { get; set; }
