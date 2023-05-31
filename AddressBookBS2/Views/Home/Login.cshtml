@@ -1,0 +1,118 @@
+﻿@{
+Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 居家养老系统</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HomeCare.styles.css" asp-append-version="true" />
+    <style>
+
+        body {
+            background-color: #8ea4f8;
+            background-image: url(/img/background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .login_box {
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            margin: auto;
+            margin-top: 150px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            color: #000;
+            margin-top: 80px;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            font-family: sans-serif;
+        }
+
+        .input_box {
+            width: 300px;
+            height: 30px;
+            width: 300px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .button_box {
+            width: 300px;
+            height: 35px;
+            width: 300px;
+            height: 40px;
+            margin-top: 20px;
+            margin-left: 50px;
+            border-radius: 5px;
+            background-color: #64a9d9;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .logo_box {
+            position: absolute;
+            background-color: #fff;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            top: 100px;
+            left: 46%;
+            border: solid 5px #A68364;
+            text-align: center;
+        }
+
+        .logo_img {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login_box">
+        <form name="f" onsubmit="check(this)">
+            <h1 class="title">欢迎登录</h1>
+            <input class="input_box" id="name" type="text" placeholder="用户名">
+            <input class="input_box" id="pass" type="password" placeholder="密码">
+            <input class="button_box" onclick="check(this)" type="button" value="登录">
+        </form>
+    </div>
+
+    <script>
+        function check(thisform) {
+
+            var name = document.getElementById("name").value;  //读取表单数据，创建变量
+            var pass = document.getElementById("pass").value;
+
+            $.post("/api/check/login", { username: name, password: pass })
+                .done(function (data) {
+                    if (data=="success") {
+                        //alert("登录成功");
+                        window.location.href = "/Home/Index";
+                    }
+                    else {
+                        alert("登录失败: " + data);
+                    }
+                });
+
+        }
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

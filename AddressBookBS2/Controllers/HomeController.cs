@@ -15,6 +15,11 @@ namespace HomeCare.Controllers
 
         public IActionResult Index()
         {
+            var username = HttpContext.Session.GetString("username");
+            if (username == null)
+            {
+                return RedirectToAction("Login");
+            }
             return View();
         }
 
@@ -27,6 +32,11 @@ namespace HomeCare.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Login()
+        {
+            return View();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using HomeCare.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -70,6 +72,28 @@ namespace HomeCare.Controllers
                 }
             }
             return "success";
+        }
+
+        [HttpPost("login")]
+        public async Task<string> LoginAsync()
+        {
+            var username = Request.Form["username"];
+            var password = Request.Form["password"];
+            var user = await _context.Zhanghu.FirstOrDefaultAsync(m => m.Username == username.First() && m.Type == "医生");
+            if (user == null)
+            {
+                return "用户名不存在";
+            }
+            else if (user.Userpassword != password.First())
+            {
+                return "密码错误";
+            }
+            else
+            {
+                //HttpContext.Session.Set("username", System.Text.UTF8Encoding.UTF8.GetBytes(user.Username)); //This the line that throws the exception.
+                HttpContext.Session.SetString("username", user.Username);
+                return "success";
+            }
         }
 
         private bool FallExists(int id)
